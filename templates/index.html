@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+<script>
+    
+</script>
+
+{% block main %}
+    <h1 class="header">My Reed Log</h1>
+    <br>
+    <table class="table tablestriped">
+        <thead>
+            <tr>
+                <th>Date made</th>
+                <th>Staple</th>
+                <th>Shape</th>
+                <th>Cane</th>
+                <th>Tie Length</th>
+                <th>Response?</th>
+                <th>Crow?</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in reeds %}
+            <tr>
+                <td>{{ row.datemade }}</td>
+                <td>{{ row.staple }}</td>
+                <td>{{ row.shape }}</td>
+                <td>{{ row.cane }}</td>
+                <td>{{ row.tielength }}</td>
+                <td>{{ row.response }}</td>
+                <td>{{ row.crow }}</td>
+                <td>{{ row.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

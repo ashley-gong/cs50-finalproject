@@ -1,0 +1,40 @@
+<!-- Form for log -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Log
+{% endblock %}
+
+{% block main %}
+    <h1 class="header">Reed Log Form</h1>
+        <form action="/log" method="post">
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="datemade" name="datemade" placeholder="Date made" type="date">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="staple" name="staple" placeholder="Staple number" type="number">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="shape" name="shape" placeholder="Shape" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="cane" name="cane" placeholder="Cane" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="tielength" name="tielength" placeholder="Tie Length" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="response" name="response" placeholder="Response: Yes/No" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="crow" name="crow" placeholder="Crow" type="text">
+                <p style="font-size: 12px; padding-top: 8px">*Note: Must input "Flat", "Up to Pitch", or "Sharp" for graph (case-sensitive).</p>
+            </div>
+            <!-- Text area for notes (long paragraph text box) -->
+            <div class="mb-3">
+                <textarea class="form-control mx-auto w-auto" id="notes" name="notes" placeholder="Notes" type="text"></textarea>
+            </div>
+            <button class="btn btn-dark" style="background-color: #DDAAAA; border: none" type="submit">Submit</button>
+        </form>
+{% endblock %}

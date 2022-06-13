@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Music
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="header">Music!</h1>
+
+    <p>Here is a preview of my favorite background/study music:</p>
+    <iframe src="https://open.spotify.com/embed/playlist/3IaSAbJLax5spyBIcU6AAQ?utm_source=generator" width="80%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <br>
+    <div style="padding: 30px">
+        <p>Send me a song recommendation:</p>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="music" name="music" placeholder="Music" type="text">
+        </div>
+        <button class="btn btn-dark" style="background-color: #DDAAAA; border: none" id="songrec" type="submit">Submit</button>
+    </div>
+    <p>Here is a preview of my oboe playlist:</p>
+    <iframe src="https://open.spotify.com/embed/playlist/3Vv72G8BiXi5QcSsuNEvSc?utm_source=generator" width="80%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('#songrec').addEventListener('click', function() {
+                let input = document.querySelector('input');
+                if (input.value == '') {
+                    alert("Oops, I didn't quite get your song rec!");
+                }
+                else {
+                    alert('Thank you!');
+                    input.value = '';
+                }
+            });
+        });
+    </script>
+    
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Patterns
+{% endblock %}
+
+{% block main %}
+
+<h1 class="header">Charts and Patterns</h1>
+<p>Here are some of your trends in reedmaking: </p>
+
+<!-- Problems in Codespace show up if I use Jinja double curly braces directly in JS -->
+<p hidden id="yes">{{ yes }}</p>
+<p hidden id="no">{{ no }}</p>
+<p hidden id="flat">{{ flat }}</p>
+<p hidden id="uptopitch">{{ uptopitch }}</p>
+<p hidden id="sharp">{{ sharp }}</p>
+
+<!-- Charts: https://www.w3schools.com/js/js_graphics_chartjs.asp -->
+<center>
+    <canvas id="donut" style="width:50%;max-width:700px"></canvas>
+    <br>
+    <canvas id="bar" style="width:50%;max-width:700px"></canvas>
+</center>
+
+<script>
+    // Donut graph for response
+    var yes = document.getElementById("yes").innerHTML;
+    var no = document.getElementById("no").innerHTML;
+    
+    var xResponse = ["Yes", "No"];
+    var yResponse = [yes, no];
+
+    var barColors = ["#1e7145", "#b91d47"];
+
+    new Chart("donut", {
+        type: "doughnut",
+        data: {
+            labels: xResponse,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yResponse
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Response Trends"
+            }
+        }
+    });
+
+    // Bar graph for crow
+    var flat = document.getElementById("flat").innerHTML;
+    var upToPitch = document.getElementById("uptopitch").innerHTML;
+    var sharp = document.getElementById("sharp").innerHTML;
+
+    var xCrow = ["Flat", "Up to Pitch", "Sharp"];
+    var yCrow = [flat, upToPitch, sharp];
+
+    new Chart("bar", {
+        type: "bar",
+        data: {
+            labels: xCrow,
+            datasets: [{
+                backgroundColor: "#1e7145",
+                data: yCrow
+            }]
+        },
+        options: {
+            legend: {display: false},
+            scales: {
+                yAxes: [{
+                ticks: {
+                        beginAtZero: true
+                    }
+                }],
+            },
+            title: {
+                display: true,
+                text: "Trends of the Crow"
+            }
+        }
+    });
+
+</script>
+
+
+
+{% endblock %}

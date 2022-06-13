@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timer
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="header">Set Timer</h1>
+    <center>
+        <div>
+            <form action="/timer" method="post">
+                <div class="mb-3">
+                    <input autocomplete="off" class="form-control mx-auto w-auto" id="minutes" name="minutes" placeholder="Minutes" type="number">
+                </div>
+                <button class="btn btn-dark" style="background-color: #DDAAAA; border: none" type="submit">Set Timer</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div style="width: 500px"> 
+            <p class="timer-label">Suggested Time Settings</p>
+            <table class="table table-bordered" style="margin-right: 10px">
+                <tr>
+                    <th>Step</th>
+                    <th>Time</th>
+                </tr>
+                <tr>
+                    <td>Soaking cane</td>
+                    <td>10 min</td>
+                </tr>
+                <tr>
+                    <td>Tying blank</td>
+                    <td>12 min</td>
+                </tr>
+                <tr>
+                    <td>Until clipping open</td>
+                    <td>8 min</td>
+                </tr>
+                <tr>
+                    <td>Until a smooth rattle</td>
+                    <td>10 min</td>
+                </tr>
+                <tr>
+                    <td>Until putting the back in</td>
+                    <td>7 min</td>
+                </tr>
+                <tr>
+                    <td>Final refinements before putting away</td>
+                    <td>5 min</td>
+                </tr>
+                <tr>
+                    <td>Total scraping</td>
+                    <td>30 min</td>
+                </tr>
+            </table>
+        </div>
+    </center>
+
+{% endblock %}

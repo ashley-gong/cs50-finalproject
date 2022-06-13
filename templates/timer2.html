@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timer
+{% endblock %}
+    <!-- Timer: -->
+
+{% block main %}
+
+    <h1 class="header">Countdown Timer</h1>
+
+    <center>
+        <div>
+            <h1 id="countdown"><span id="timer"><span id="minutes">{{ minutes }}</span> : 00</span></h1>
+        </div>
+        <table>
+            <tr>
+                <td class="links"><a href="timer">Reset</a></td>
+                <td class="links"><a href="log">Log</a></td>
+            </tr>
+        </table>
+    </center>
+
+    <p hidden id="hidden">{{ minutes }}</p>
+
+    <br>
+    <div class="alert alert-light" role="alert">
+        Check out my favorite oboe playlist <a href="https://www.youtube.com/watch?v=L12QaKHfM1o&list=PLx2bkvyo7bf_EJO2WeNdheNfoJvyfQdm4" target="_blank">HERE</a> for background music!
+    </div>
+    <div class="alert alert-light" role="alert">
+        Note: there is no pause button for the timer. To stop the timer, click reset!
+    </div>
+
+        <!-- timer adapted from https://www.codegrepper.com/code-examples/javascript/javascript+countdown+timer+minutes%2C+seconds -->
+        <script>
+
+        window.onload = function() {
+            
+            // Initialize value for timer; sec = 59 because window.onload has a ~1-second delay of running
+            var minute = document.getElementById("hidden").innerHTML
+            var sec = 59;
+
+            // Counts down by seconds
+            var timer = setInterval(function() {
+                document.getElementById("timer").innerHTML = (minute - 1) + " : " + sec;
+                sec--;
+                
+                // format seconds as 0:09 when the seconds reach single digits
+                if (sec < 10 && sec >= 0) {
+                    sec = "0" + sec;
+                }
+
+                // To turnover to the next minute (or stop the timer)
+                if (sec == "00") {
+                    var turnover = setTimeout(function() {
+                        if (minute > 0) {
+                            minute--;
+                            sec = 59;
+                        }
+
+                        // When the timer ends
+                        if (minute <= 0)
+                        {
+                            document.getElementById("timer").innerHTML = "Time's Up :)";
+                            clearInterval(timer);
+                            
+                            // From https://stackoverflow.com/questions/9419263/how-to-play-audio
+                            var audio = new Audio('static/timesup.mp3');
+                                audio.play();
+                        }
+
+                    }, 1000);
+                }
+
+
+            }, 1000);
+
+        }
+
+    </script>
+
+{% endblock %}
