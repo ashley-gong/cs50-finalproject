@@ -1,0 +1,57 @@
+h2 {
+    color: #DC7D7D;
+    font: Verdana;
+    font-weight: normal;
+}
+
+/* Reed Time title on login and register */
+.header {
+    color: #951717;
+    font-family: "Lucida Handwriting", Cursive;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+
+/* Timer label texts */
+.timer-label {
+    font-size: 20px; 
+    font-weight: normal;
+    color: #951717;
+    font: Verdana;
+}
+
+/* Timer text */
+#countdown {
+    font-size: 80px;
+    font-weight: bold;
+    font: Verdana;
+    padding: 20px;
+}
+
+
+/* Table formatting */
+table {
+    text-align: left;
+}
+
+
+.links {
+    padding: 50px;
+    font-size: 20px
+}
+
+/* Footer for non-homepages */
+.footer {
+    padding-top: 25px;
+}
+
+/* Link formatting for all pages */
+a {
+    color: #9A063A;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #B240F3;
+}
